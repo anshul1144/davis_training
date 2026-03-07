@@ -9,13 +9,13 @@ if breadth <= 0:
     exit("Invalid Input: Breadth must be greater than 0")
     
 # calculating area and perimeter
-print("Area of the rectangle =", length * breadth)
-print("Perimeter of the rectangle =", 2 * (length + breadth))
+print("Area of the rectangle =", length * breadth,"square units")
+print("Perimeter of the rectangle =", 2 * (length + breadth),"units")
 #................................................................
 
 """ Output: 
 Enter the length of the rectangle: 5
 Enter the breadth of the rectangle: 3
-Area of the rectangle = 15.0
-Perimeter of the rectangle = 16.0
+Area of the rectangle = 15.0 square units
+Perimeter of the rectangle = 16.0 units
 """
