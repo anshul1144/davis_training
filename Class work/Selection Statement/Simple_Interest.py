@@ -1,5 +1,6 @@
 # Program to calculate simple interest and validate the results
 
+#..................................................................
 # Taking input from user
 principal = float(input("Enter the Principal Amount: "))
 rate = float(input("Enter the Rate of Interest: "))
@@ -17,7 +18,7 @@ else:
     # Displaying result
     print("Simple Interest =", (principal * rate * time) / 100)
 
-#...................................................
+#................................................................
 
 """ Output:
 Enter the Principal Amount: 1000
