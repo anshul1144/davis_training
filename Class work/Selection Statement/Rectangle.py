@@ -8,8 +8,20 @@ breadth = float(input("Enter the breadth of the rectangle: "))
 if breadth <= 0:
     exit("Invalid Input: Breadth must be greater than 0")
     
-# calculating area and perimeter
+# Displaying the input values
+print(".................Rectangle.................")
+print("Length =", length,"units")
+print("Breadth =", breadth,"units")
+    
+# calculating area
 print("Area of the rectangle =", length * breadth,"square units")
+
+# Displaying the input values
+print(".................Rectangle.................")
+print("Length =", length,"units")
+print("Breadth =", breadth,"units")
+
+# calculating perimeter
 print("Perimeter of the rectangle =", 2 * (length + breadth),"units")
 #................................................................
 
