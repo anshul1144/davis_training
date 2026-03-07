@@ -1,11 +1,11 @@
 # program to check greatest number among five numbers
 
 #taking numbers from the user
-num1= float(input("Enter the first number: "))
-num2= float(input("Enter the second number: "))
-num3= float(input("Enter the third number: "))
-num4= float(input("Enter the fourth number: "))
-num5= float(input("Enter the fifth number: "))
+num1= int(input("Enter the first number: "))
+num2= int(input("Enter the second number: "))
+num3= int(input("Enter the third number: "))
+num4= int(input("Enter the fourth number: "))
+num5= int(input("Enter the fifth number: "))
 
 #checking the greatest number among the five numbers
 if num1 >= num2 and num1 >= num3 and num1 >= num4 and num1 >= num5:
