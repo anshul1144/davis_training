@@ -27,5 +27,5 @@ Enter the second number: 20
 Enter the third number: 30
 Enter the fourth number: 40
 Enter the fifth number: 50
-50.0 is the greatest number.
+50 is the greatest number.
 """
