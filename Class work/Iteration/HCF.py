@@ -13,3 +13,8 @@ else:
 #..................................................
     print("HCF is", num1)
     
+""" Output:
+Enter the first number: 48
+Enter the second number: 18
+HCF is 6
+"""
