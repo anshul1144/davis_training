@@ -3,9 +3,9 @@
 #function to check even or odd
 def check_even_odd(num):
     if num % 2 == 0:
-        return "Even"
+        return True
     else:
-        return "Odd"
+        return False
 
 #input from user
 number = int(input("Enter a number: "))
