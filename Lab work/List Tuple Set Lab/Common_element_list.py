@@ -26,6 +26,7 @@ if common_elements:
 else:
     print("No common elements found in the three lists.")
     
+#............................................................................
 """ Output:
 Enter number of elements in the first list: 5
 Enter element for the first list: 1     
