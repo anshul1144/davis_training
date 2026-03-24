@@ -21,6 +21,7 @@ result_set = set1.symmetric_difference(set2)
 # printing the result
 print("Elements in either set but not in both:", result_set)
 
+#............................................................................
 """
 Output:
 Enter number of elements in Set 1: 4
