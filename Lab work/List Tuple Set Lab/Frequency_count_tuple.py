@@ -22,6 +22,7 @@ for elem, count in frequency.items():
     print(f"{elem}: {count}")
 
 #...............................................................................
+
 """ Output: 
 Enter number of elements in the tuple: 6
 Enter element for the tuple: apple
