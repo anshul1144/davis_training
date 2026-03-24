@@ -20,6 +20,7 @@ for elem in my_tuple:
 print(".........................................................................")
 print("Maximum element in the tuple:", max_element)
 print("Minimum element in the tuple:", min_element)
+
 #...............................................................................
 
 """ Output:
