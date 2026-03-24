@@ -1,4 +1,4 @@
-# Flatten a nested list (1 level deep)
+# Flatten a nested list.
 #......................................................................
 # taking input from user for the nested list
 n = int(input("Enter number of sublists: "))
