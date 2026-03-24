@@ -12,6 +12,7 @@ unique_numbers = list(set(numbers))
 numbers_tuple = tuple(unique_numbers)
 # printing the tuple
 print("Tuple with unique elements:", numbers_tuple)
+
 #...............................................................................
 
 """ Output:
