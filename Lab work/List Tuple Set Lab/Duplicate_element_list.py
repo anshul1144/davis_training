@@ -19,6 +19,7 @@ for num in numbers:
 
 # printing the list of duplicate elements
 print("Duplicate elements in the list:", duplicates)
+
 #............................................................
 
 """ Output Example:
