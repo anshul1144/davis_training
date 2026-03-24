@@ -18,4 +18,4 @@ intersection = set1.intersection(set2)
 print("Intersection of set1 and set2:", intersection)
 # finding the difference between the two sets
 difference = set1.difference(set2)
-print("Difference between set1 and set2:", difference)
+print("Difference between set1 and set2:",difference)
