@@ -1,4 +1,5 @@
 # Rotate a list to the right by k positions.
+#............................................
 # taking input from user
 numbers = []
 n = int(input("Enter number of elements: "))
