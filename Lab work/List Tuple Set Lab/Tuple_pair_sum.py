@@ -22,6 +22,7 @@ if pairs:
 else:
     print("No pairs found in the tuple whose sum equals", target_sum)
 
+#...............................................................................
 """ Output:
 Enter number of elements in the tuple: 5
 Enter element for the tuple: 1
