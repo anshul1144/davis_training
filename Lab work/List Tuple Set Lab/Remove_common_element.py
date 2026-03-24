@@ -22,6 +22,7 @@ updated_list = [num for num in list1 if num not in list2]
 # printing the updated list
 print("Updated list after removing common elements:", updated_list)
 
+#.............................................................................
 """ Output:
 Enter number of elements in the first list: 5
 Enter element for the first list: 1
