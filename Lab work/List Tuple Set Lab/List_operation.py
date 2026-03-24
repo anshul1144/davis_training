@@ -1,4 +1,4 @@
-# Peogram to remove all empty sets from a list of sets.
+# Program to remove all empty sets from a list of sets.
 #......................................................................
 # creating a list of sets
 list_of_sets = []
