@@ -19,6 +19,7 @@ merged_list.sort()
 # printing the sorted list of unique elements
 print("Merged and sorted list of unique elements:", merged_list)
 
+#.......................................................................
 """ Output:
 Enter number of elements in the first list: 5
 Enter element for the first list: 1
