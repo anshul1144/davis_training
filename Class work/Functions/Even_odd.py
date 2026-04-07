@@ -13,6 +13,6 @@ print("The number is", check_even_odd(number))
 #..................................................
 
 """ Output:
-Enter a number: 15
-The number is Odd
+Enter a number: 10
+The number is True
 """
