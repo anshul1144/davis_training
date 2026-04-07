@@ -1,4 +1,4 @@
-# Program to check whether a given number is even or odd.
+# Program to check whether a given number is even or odd by using the function.
 #..................................................
 #function to check even or odd
 def check_even_odd(num):
