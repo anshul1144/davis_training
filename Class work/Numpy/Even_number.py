@@ -1,0 +1,1 @@
+# create a numpy array from the even factors of a given number
