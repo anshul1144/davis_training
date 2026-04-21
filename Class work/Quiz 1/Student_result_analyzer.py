@@ -1,18 +1,18 @@
-""" A school stores student data in a file: id,name,marks1,marks2,marks3 Build a system that: 
+"""
+A school stores student data in a file: id,name,marks1,marks2,marks3 Build a system that: 
 • Reads file  
 • Calculates total, percentage  
 • Assigns grade using selection statements  
 • Handles missing/invalid data using exception handling  
-• Outputs toppers per class  """
+• Outputs toppers per class  
+"""
 
 import csv
 
-def get_class_from_id(student_id):
-    """
-    Tries to get class name from student id.
 
-    If no separator is found, returns "Unknown".
-    """
+# Get class from student id
+# Example: 10A-01 -> 10A, 9B_03 -> 9B
+def get_class_from_id(student_id):
     if "-" in student_id:
         return student_id.split("-")[0].strip()
     if "_" in student_id:
@@ -20,8 +20,8 @@ def get_class_from_id(student_id):
     return "Unknown"
 
 
+# Assign grade using percentage
 def assign_grade(percentage):
-    """Assign grade based on percentage."""
     if percentage >= 90:
         return "A+"
     elif percentage >= 80:
@@ -36,92 +36,76 @@ def assign_grade(percentage):
         return "F"
 
 
-def process_student_row(row, line_number):
-    """
-    Validates one row and returns processed student dictionary.
-    Returns None if row has invalid data.
-    """
-    try:
-        # Check total columns first
-        if len(row) != 5:
-            raise ValueError("Expected 5 values: id,name,marks1,marks2,marks3")
+# File path
+file_name = "Class work/Quiz 1/student_data.csv"
 
-        student_id = row[0].strip()
-        name = row[1].strip()
+# List to store valid student records
+students = []
 
-        # Convert marks to numbers
-        mark1 = float(row[2].strip())
-        mark2 = float(row[3].strip())
-        mark3 = float(row[4].strip())
+#  Read file and process row by row
+try:
+    with open(file_name, "r", encoding="utf-8") as file:
+        reader = csv.reader(file)
 
-        # Check marks range
-        for mark in (mark1, mark2, mark3):
-            if mark < 0 or mark > 100:
-                raise ValueError("Marks should be between 0 and 100")
+        # Skip header
+        header = next(reader, None)
+        if header is None:
+            print("File is empty.")
 
-        total = mark1 + mark2 + mark3
-        percentage = total / 3
-        grade = assign_grade(percentage)
-        class_name = get_class_from_id(student_id)
-
-        return {
-            "id": student_id,
-            "name": name,
-            "class": class_name,
-            "marks": [mark1, mark2, mark3],
-            "total": total,
-            "percentage": percentage,
-            "grade": grade,
-        }
-
-    except ValueError as error:
-        print(f"Line {line_number}: Invalid data -> {error}")
-        return None
-    except Exception as error:
-        print(f"Line {line_number}: Unexpected error -> {error}")
-        return None
-
-
-def read_and_analyze_file(file_name):
-    """Reads file and returns list of valid student records."""
-    students = []
-
-    try:
-        with open(file_name, mode="r", encoding="utf-8") as file:
-            reader = csv.reader(file)
-
-            # Skip header row
-            header = next(reader, None)
-            if header is None:
-                print("File is empty.")
-                return students
-
-            # Start from line 2 because line 1 is header
-            for line_number, row in enumerate(reader, start=2):
-                # Ignore blank lines
+        # Read each row
+        for line_number, row in enumerate(reader, start=2):
+            try:
+                # Ignore empty rows
                 if not row or all(cell.strip() == "" for cell in row):
                     continue
 
-                student = process_student_row(row, line_number)
-                if student is not None:
-                    students.append(student)
+                # Check correct number of values
+                if len(row) != 5:
+                    raise ValueError("Expected 5 values: id,name,marks1,marks2,marks3")
 
-    except FileNotFoundError:
-        print(f"Error: File '{file_name}' not found.")
-    except PermissionError:
-        print(f"Error: No permission to read '{file_name}'.")
-    except Exception as error:
-        print(f"Error while reading file: {error}")
+                student_id = row[0].strip()
+                name = row[1].strip()
+                mark1 = float(row[2].strip())
+                mark2 = float(row[3].strip())
+                mark3 = float(row[4].strip())
 
-    return students
+                # Marks must be between 0 and 100
+                for mark in (mark1, mark2, mark3):
+                    if mark < 0 or mark > 100:
+                        raise ValueError("Marks should be between 0 and 100")
+
+                total = mark1 + mark2 + mark3
+                percentage = total / 3
+                grade = assign_grade(percentage)
+                class_name = get_class_from_id(student_id)
+
+                # Save valid student data
+                students.append(
+                    {
+                        "id": student_id,
+                        "name": name,
+                        "class": class_name,
+                        "total": total,
+                        "percentage": percentage,
+                        "grade": grade,
+                    }
+                )
+
+            except ValueError as error:
+                print(f"Line {line_number}: Invalid data -> {error}")
+            except Exception as error:
+                print(f"Line {line_number}: Unexpected error -> {error}")
+
+except FileNotFoundError:
+    print(f"Error: File '{file_name}' not found.")
+except Exception as error:
+    print(f"Error while reading file: {error}")
 
 
-def print_student_report(students):
-    """Prints student-wise report."""
-    if not students:
-        print("No valid student data to display.")
-        return
-
+#  Print all student results
+if len(students) == 0:
+    print("No valid student records found.")
+else:
     print("\n--- Student Result Report ---")
     for student in students:
         print(
@@ -130,12 +114,7 @@ def print_student_report(students):
             f"Percentage: {student['percentage']:.2f}%, Grade: {student['grade']}"
         )
 
-
-def print_toppers_by_class(students):
-    """Finds and prints topper(s) in each class."""
-    if not students:
-        return
-
+    # Find and print topper(s) class wise
     class_groups = {}
 
     # Group students by class
@@ -149,7 +128,7 @@ def print_toppers_by_class(students):
     for class_name, class_students in class_groups.items():
         highest_total = max(s["total"] for s in class_students)
 
-        # Handle tie case (multiple toppers)
+        # If tie, print all toppers
         toppers = [s for s in class_students if s["total"] == highest_total]
 
         print(f"\nClass: {class_name}")
@@ -158,17 +137,3 @@ def print_toppers_by_class(students):
                 f"Topper: {topper['name']} (ID: {topper['id']}), "
                 f"Total: {topper['total']:.2f}, Percentage: {topper['percentage']:.2f}%"
             )
-
-
-# Give file path
-file_name = "Class work/Quiz 1/student_data.csv"
-
-# Read file and process student data
-students = read_and_analyze_file(file_name)
-
-# Show results only if we have valid records
-if len(students) > 0:
-    print_student_report(students)
-    print_toppers_by_class(students)
-else:
-    print("No valid student records found.")
