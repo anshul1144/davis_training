@@ -1,12 +1,9 @@
-"""
-A school stores student data in a file: id,name,marks1,marks2,marks3 Build a system that: 
+""" A school stores student data in a file: id,name,marks1,marks2,marks3 Build a system that: 
 • Reads file  
 • Calculates total, percentage  
 • Assigns grade using selection statements  
 • Handles missing/invalid data using exception handling  
-• Outputs toppers per class  
-"""
-
+• Outputs toppers per class """
 import csv
 
 
@@ -42,7 +39,7 @@ file_name = "Class work/Quiz 1/student_data.csv"
 # List to store valid student records
 students = []
 
-#  Read file and process row by row
+# Step 1: Read file and process row by row
 try:
     with open(file_name, "r", encoding="utf-8") as file:
         reader = csv.reader(file)
@@ -102,7 +99,7 @@ except Exception as error:
     print(f"Error while reading file: {error}")
 
 
-#  Print all student results
+# Step 2: Print all student results
 if len(students) == 0:
     print("No valid student records found.")
 else:
@@ -114,7 +111,7 @@ else:
             f"Percentage: {student['percentage']:.2f}%, Grade: {student['grade']}"
         )
 
-    # Find and print topper(s) class wise
+    # Step 3: Find and print topper(s) class wise
     class_groups = {}
 
     # Group students by class
