@@ -7,14 +7,9 @@
 
 import csv
 
-
 def get_class_from_id(student_id):
     """
     Tries to get class name from student id.
-
-    Examples:
-    10A-01 -> 10A
-    9B_12  -> 9B
 
     If no separator is found, returns "Unknown".
     """
