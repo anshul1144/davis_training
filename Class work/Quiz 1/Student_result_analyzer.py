@@ -1,14 +1,12 @@
-"""A school stores student data in a file: id,name,marks1,marks2,marks3 Build a system that: 
+""" A school stores student data in a file: id,name,marks1,marks2,marks3 Build a system that: 
 • Reads file  
 • Calculates total, percentage  
 • Assigns grade using selection statements  
 • Handles missing/invalid data using exception handling  
 • Outputs toppers per class """
-
-
-# Get class name from student ID
+# Get class from student id
 # Example: 10A-01 -> 10A, 9B_03 -> 9B
-def get_class(student_id):
+def get_class_from_id(student_id):
     if "-" in student_id:
         return student_id.split("-")[0].strip()
     if "_" in student_id:
@@ -16,120 +14,121 @@ def get_class(student_id):
     return "Unknown"
 
 
-# Return grade from percentage
-def get_grade(percent):
-    if percent >= 90:
+# Assign grade using percentage
+def assign_grade(percentage):
+    if percentage >= 90:
         return "A+"
-    if percent >= 80:
+    elif percentage >= 80:
         return "A"
-    if percent >= 70:
+    elif percentage >= 70:
         return "B"
-    if percent >= 60:
+    elif percentage >= 60:
         return "C"
-    if percent >= 50:
+    elif percentage >= 50:
         return "D"
-    return "F"
-
-
-# Convert one CSV line into a valid student dictionary
-# If data is invalid, print error and return None
-def parse_student(line, line_number):
-    try:
-        # Split row by comma and remove extra spaces
-        parts = [x.strip() for x in line.split(",")]
-        if len(parts) != 5:
-            raise ValueError("Expected 5 values")
-
-        # Read id, name and marks
-        sid, name = parts[0], parts[1]
-        marks = [float(parts[2]), float(parts[3]), float(parts[4])]
-
-        # Validate marks range
-        if any(m < 0 or m > 100 for m in marks):
-            raise ValueError("Marks should be between 0 and 100")
-
-        # Calculate total, percentage, grade
-        total = sum(marks)
-        percent = total / 3
-        return {
-            "id": sid,
-            "name": name,
-            "class": get_class(sid),
-            "total": total,
-            "percentage": percent,
-            "grade": get_grade(percent),
-        }
-    except Exception as error:
-        print(f"Line {line_number}: Invalid data -> {error}")
-        return None
-
-
-# Read file and return list of valid students
-def read_students(file_name):
-    students = []
-    try:
-        with open(file_name, "r", encoding="utf-8") as file:
-            # Read and skip header line
-            if file.readline() == "":
-                print("File is empty.")
-                return students
-
-            # Read each student row from line 2
-            for line_number, line in enumerate(file, start=2):
-                if line.strip() == "":
-                    continue
-                student = parse_student(line.strip(), line_number)
-                if student:
-                    students.append(student)
-    except FileNotFoundError:
-        print(f"Error: File '{file_name}' not found.")
-    except Exception as error:
-        print(f"Error while reading file: {error}")
-    return students
-
-
-# Print all valid student results
-def print_report(students):
-    print("\n--- Student Result Report ---")
-    for s in students:
-        print(
-            f"ID: {s['id']}, Name: {s['name']}, Class: {s['class']}, "
-            f"Total: {s['total']:.2f}, Percentage: {s['percentage']:.2f}%, Grade: {s['grade']}"
-        )
-
-
-# Group by class and print class topper(s)
-def print_toppers(students):
-    by_class = {}
-    for s in students:
-        # Create class key if not present, then append student
-        by_class.setdefault(s["class"], []).append(s)
-
-    print("\n--- Class Topper(s) ---")
-    for class_name, class_students in by_class.items():
-        # Find highest total in this class
-        top_total = max(s["total"] for s in class_students)
-        print(f"\nClass: {class_name}")
-        for s in class_students:
-            # Print all toppers in case of tie
-            if s["total"] == top_total:
-                print(
-                    f"Topper: {s['name']} (ID: {s['id']}), "
-                    f"Total: {s['total']:.2f}, Percentage: {s['percentage']:.2f}%"
-                )
+    else:
+        return "F"
 
 
 # File path
 file_name = "Class work/Quiz 1/student_data.csv"
 
-# Step 1: Read and validate data
-students = read_students(file_name)
+# List to store valid student records
+students = []
 
-if students:
-    # Step 2: Print student report
-    print_report(students)
+# Step 1: Read file and process row by row
+try:
+    with open(file_name, "r", encoding="utf-8") as file:
+        # Read first line (header)
+        header = file.readline()
+        if header == "":
+            print("File is empty.")
 
-    # Step 3: Print class toppers
-    print_toppers(students)
-else:
+        # Read each line after header
+        for line_number, line in enumerate(file, start=2):
+            try:
+                # Ignore empty rows
+                if line.strip() == "":
+                    continue
+
+                # Split line into columns
+                row = line.strip().split(",")
+
+                # Check correct number of values
+                if len(row) != 5:
+                    raise ValueError("Expected 5 values: id,name,marks1,marks2,marks3")
+
+                student_id = row[0].strip()
+                name = row[1].strip()
+                mark1 = float(row[2].strip())
+                mark2 = float(row[3].strip())
+                mark3 = float(row[4].strip())
+
+                # Marks must be between 0 and 100
+                for mark in (mark1, mark2, mark3):
+                    if mark < 0 or mark > 100:
+                        raise ValueError("Marks should be between 0 and 100")
+
+                total = mark1 + mark2 + mark3
+                percentage = total / 3
+                grade = assign_grade(percentage)
+                class_name = get_class_from_id(student_id)
+
+                # Save valid student data
+                students.append(
+                    {
+                        "id": student_id,
+                        "name": name,
+                        "class": class_name,
+                        "total": total,
+                        "percentage": percentage,
+                        "grade": grade,
+                    }
+                )
+
+            except ValueError as error:
+                print(f"Line {line_number}: Invalid data -> {error}")
+            except Exception as error:
+                print(f"Line {line_number}: Unexpected error -> {error}")
+
+except FileNotFoundError:
+    print(f"Error: File '{file_name}' not found.")
+except Exception as error:
+    print(f"Error while reading file: {error}")
+
+
+# Step 2: Print all student results
+if len(students) == 0:
     print("No valid student records found.")
+else:
+    print("\n--- Student Result Report ---")
+    for student in students:
+        print(
+            f"ID: {student['id']}, Name: {student['name']}, "
+            f"Class: {student['class']}, Total: {student['total']:.2f}, "
+            f"Percentage: {student['percentage']:.2f}%, Grade: {student['grade']}"
+        )
+
+    # Step 3: Find and print topper(s) class wise
+    class_groups = {}
+
+    # Group students by class
+    for student in students:
+        class_name = student["class"]
+        if class_name not in class_groups:
+            class_groups[class_name] = []
+        class_groups[class_name].append(student)
+
+    print("\n--- Class Topper(s) ---")
+    for class_name, class_students in class_groups.items():
+        highest_total = max(s["total"] for s in class_students)
+
+        # If tie, print all toppers
+        toppers = [s for s in class_students if s["total"] == highest_total]
+
+        print(f"\nClass: {class_name}")
+        for topper in toppers:
+            print(
+                f"Topper: {topper['name']} (ID: {topper['id']}), "
+                f"Total: {topper['total']:.2f}, Percentage: {topper['percentage']:.2f}%"
+            )
