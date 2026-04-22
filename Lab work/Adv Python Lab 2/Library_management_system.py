@@ -1,4 +1,4 @@
-""" Library Management System (Basic)
+"""Library Management System (Basic)
 
 Features:
 - Issue/return books
