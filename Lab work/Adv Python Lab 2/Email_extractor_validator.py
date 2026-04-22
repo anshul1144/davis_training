@@ -1,4 +1,4 @@
-""" Email Extractor and Validator
+"""Email Extractor and Validator
 
 From a text file:
 - Extract emails
