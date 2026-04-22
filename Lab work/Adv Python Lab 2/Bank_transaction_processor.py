@@ -1,4 +1,4 @@
-""" Bank Transaction Processor
+"""Bank Transaction Processor
 
 File contains:
 account,type(deposit/withdraw),amount
