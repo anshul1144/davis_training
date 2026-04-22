@@ -1,4 +1,4 @@
-""" Palindrome Sentence Analyzer
+"""Palindrome Sentence Analyzer
 
 Given sentences:
 - Detect palindrome words
