@@ -1,4 +1,4 @@
-"""5) Extract valid email addresses from data.txt into emails.txt."""
+"""Extract valid email addresses from data.txt into emails.txt."""
 
 import re
 
