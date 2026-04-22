@@ -1,4 +1,4 @@
-""" Custom Module: Math Utility Package
+"""Custom Module: Math Utility Package
 
 Create a module with:
 - Prime check
