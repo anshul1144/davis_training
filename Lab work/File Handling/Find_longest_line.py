@@ -1,4 +1,4 @@
-"""9) Find the longest line in a file and print its length and content."""
+""" Find the longest line in a file and print its length and content."""
 
 
 def find_longest_line(file_name="input.txt"):
