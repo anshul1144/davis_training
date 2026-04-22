@@ -1,4 +1,4 @@
-""" Employee Attendance Tracker
+"""Employee Attendance Tracker
 
 File contains:
 emp_id,date,status
