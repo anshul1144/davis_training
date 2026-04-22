@@ -1,4 +1,4 @@
-"""1) Copy contents of one file into another."""
+""" Copy contents of one file into another."""
 
 
 def copy_file_content(source_file, destination_file):
