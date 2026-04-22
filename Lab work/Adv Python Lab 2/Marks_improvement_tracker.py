@@ -1,4 +1,4 @@
-""" Marks Improvement Tracker
+"""Marks Improvement Tracker
 
 Compare two exam files:
 - Identify students who improved
