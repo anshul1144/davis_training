@@ -1,4 +1,4 @@
-"""3) Count frequency of each word from article.txt (ignore case and punctuation)."""
+""" Count frequency of each word from article.txt (ignore case and punctuation)."""
 
 import re
 from collections import Counter
