@@ -1,4 +1,4 @@
-"""8) Search and print all lines containing a user-provided keyword."""
+"""Search and print all lines containing a user-provided keyword."""
 
 
 def keyword_search(file_name="input.txt"):
