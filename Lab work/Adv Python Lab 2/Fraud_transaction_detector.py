@@ -1,4 +1,4 @@
-""" Fraud Transaction Detector
+"""Fraud Transaction Detector
 
 Given a list of transactions:
 
