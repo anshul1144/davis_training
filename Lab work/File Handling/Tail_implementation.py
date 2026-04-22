@@ -1,4 +1,4 @@
-"""12) Display last N lines of a file efficiently (like Linux tail)."""
+""" Display last N lines of a file efficiently (like Linux tail)."""
 
 from collections import deque
 
