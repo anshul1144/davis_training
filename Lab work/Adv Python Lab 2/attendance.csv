@@ -1,0 +1,10 @@
+emp_id,date,status
+E101,2026-04-01,present
+E101,2026-04-02,absent
+E101,2026-04-03,present
+E102,2026-04-01,absent
+E102,2026-04-02,absent
+E102,2026-04-03,present
+E103,2026-04-01,present
+E103,2026-04-02,present
+E103,2026-04-03,present

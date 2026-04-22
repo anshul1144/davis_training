@@ -1,0 +1,9 @@
+product,category,price,quantity
+Laptop,Electronics,55000,3
+Phone,Electronics,25000,5
+Notebook,Stationery,50,100
+Pen,Stationery,10,300
+Desk,Furniture,7000,2
+Chair,Furniture,3000,4
+InvalidRow
+Marker,Stationery,-20,10
