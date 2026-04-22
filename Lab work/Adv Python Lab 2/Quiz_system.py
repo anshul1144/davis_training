@@ -1,4 +1,4 @@
-""" Quiz System
+"""Quiz System
 
 Features:
 - Load questions from file
