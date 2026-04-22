@@ -1,4 +1,4 @@
-"""4) Remove duplicate lines from a file while preserving order."""
+""" Remove duplicate lines from a file while preserving order."""
 
 
 def remove_duplicates(input_file="input.txt", output_file="unique_lines.txt"):
