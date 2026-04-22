@@ -1,5 +1,4 @@
-"""
-
+""" Student Result Analyzer
 A school stores student data in a file:
 id,name,marks1,marks2,marks3
 
