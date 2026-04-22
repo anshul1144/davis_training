@@ -1,4 +1,4 @@
-""" File Word Frequency Analyzer
+"""File Word Frequency Analyzer
 
 Read a large file:
 - Count word frequency
