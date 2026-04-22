@@ -1,4 +1,4 @@
-"""6) Merge file1.txt and file2.txt into one file with line numbers."""
+"""Merge file1.txt and file2.txt into one file with line numbers."""
 
 
 def merge_files_with_line_numbers(
