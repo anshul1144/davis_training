@@ -1,4 +1,4 @@
-"""10) Find lines present in file1.txt but not in file2.txt."""
+""" Find lines present in file1.txt but not in file2.txt."""
 
 
 def compare_files(file1="file1.txt", file2="file2.txt"):
