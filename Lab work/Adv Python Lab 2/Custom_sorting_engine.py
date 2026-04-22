@@ -1,4 +1,4 @@
-""" Custom Sorting Engine
+"""Custom Sorting Engine
 
 Sort list of tuples:
 (name, marks, age)
