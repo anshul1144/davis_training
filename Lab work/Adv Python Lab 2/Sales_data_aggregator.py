@@ -1,4 +1,4 @@
-""" Sales Data Aggregator
+"""Sales Data Aggregator
 
 Given file:
 product,category,price,quantity
