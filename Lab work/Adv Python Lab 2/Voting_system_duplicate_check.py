@@ -1,4 +1,4 @@
-""" Voting System with Duplicate Check
+"""Voting System with Duplicate Check
 
 Input:
 List of votes
