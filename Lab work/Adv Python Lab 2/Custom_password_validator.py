@@ -1,4 +1,4 @@
-""" Custom Password Validator
+"""Custom Password Validator
 
 Rules:
 - Min 8 chars
