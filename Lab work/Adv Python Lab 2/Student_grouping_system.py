@@ -1,4 +1,4 @@
-""" Student Grouping System
+"""Student Grouping System
 
 Given list of students:
 - Group by grade
