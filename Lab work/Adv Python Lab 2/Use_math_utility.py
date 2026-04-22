@@ -1,4 +1,4 @@
-""" Main Program for Math Utility Package
+"""Main Program for Math Utility Package
 
 Imports math_utility_package and uses:
 - Prime check
