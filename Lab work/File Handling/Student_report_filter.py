@@ -1,4 +1,4 @@
-"""2) Filter students scoring above 75 from students.txt."""
+""" Filter students scoring above 75 from students.txt."""
 
 
 def filter_students(input_file="students.txt", output_file="top_students.txt"):
