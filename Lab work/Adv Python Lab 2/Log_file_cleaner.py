@@ -1,4 +1,4 @@
-""" Log File Cleaner
+"""Log File Cleaner
 
 Given a log file:
 
