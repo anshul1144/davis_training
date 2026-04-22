@@ -1,4 +1,4 @@
-""" Data Cleaning Tool
+"""Data Cleaning Tool
 
 Input file contains messy data:
 - Remove null values
