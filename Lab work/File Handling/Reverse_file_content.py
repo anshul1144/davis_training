@@ -1,4 +1,4 @@
-"""7) Reverse file content line-wise into another file."""
+""" Reverse file content line-wise into another file."""
 
 
 def reverse_lines(input_file="input.txt", output_file="reversed_output.txt"):
