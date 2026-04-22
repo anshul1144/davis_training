@@ -1,4 +1,10 @@
-"""Prime Number Checker using function and for-loop."""
+
+""" Write a function is_primeNo:
+
+Use for loop to check divisibility
+Return True/False
+Use if-else to display result"""
+
 
 
 def is_primeNo(number):
