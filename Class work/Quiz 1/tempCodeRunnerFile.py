@@ -1,0 +1,1 @@
+A school stores student data in a file
